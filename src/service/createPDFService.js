@@ -4,18 +4,24 @@ const util = require('util');
 const ejs = require('ejs');
 const fs = require("fs");
 const dayjs = require('dayjs');
-const bwipjs = require('bwip-js');
+const bwipJs = require('bwip-js');
+const qrcode = require('qrcode');
 const stream = require('stream');
 const merge = require('deepmerge');
 const html2pdf = require('../util/html2pdf');
 const CONFIG = require("../config/server.config");
 let browser = null;
-bwipjs.toBuffer = util.promisify(bwipjs.toBuffer);
+bwipJs.toBuffer = util.promisify(bwipJs.toBuffer);
 
 let __ejsHelper = {
     dayjs: dayjs,
+    qrcode: async (data) => {
+        return qrcode.toDataURL(data, {
+
+        })
+    },
     barcode: async (data) => {
-        return bwipjs.toBuffer({
+        return bwipJs.toBuffer({
             bcid: 'code128',
             text: data,
             height: 10,
@@ -86,10 +92,10 @@ let createPDFService = {
         let PDFData = {};
         const defaultOption = {
             margin: {
-                top: 50,
+                top: 100,
                 left: 50,
                 right: 50,
-                bottom: 50
+                bottom: 100
             }
         };
 

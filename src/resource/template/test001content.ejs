@@ -7,13 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-appearance: none;
-        }
-
         a {
             text-decoration: none;
             background-color: transparent;
@@ -41,11 +34,29 @@
             font-family: "Source Han Sans CN", sans-serif;
         }
     </style>
+    <%
+        let testText = "Neal Ding";
+        let testTimeStamp = 1603854429277;
+    %>
 </head>
-
 <body>
 <div class="cover">
-    <p>Content Test</p>
+    <p>From Request: <%= content %></p>
+    <p>Here is the build-in function demo:</p>
+    <dl>
+        <dt>Barcode: <%= testText %></dt>
+        <dd>
+            <span>Result: </span><img src="<%= await __ejsHelper.barcode(testText); %>"/>
+        </dd>
+        <dt>Qrcode: <%= testText %></dt>
+        <dd>
+            <span>Result: </span><img src="<%= await __ejsHelper.qrcode(testText); %>"/>
+        </dd>
+        <dt>TimeStamp: <%= testTimeStamp %></dt>
+        <dd>
+            <p>DateFormat: <%= await __ejsHelper.dayjs(testTimeStamp).format("YYYY-MM-DD"); %></p>
+        </dd>
+    </dl>
 </div>
 
 </body>

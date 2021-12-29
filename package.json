@@ -4,7 +4,7 @@
   "main": "index.js",
   "description": "generate PDF/excel from template",
   "repository": "git@git.yx.netease.com:YX-Supplier/yanxuan-qc-pdf.git",
-  "author": "hzdingxinghua <hzdingxinghua@corp.netease.com>",
+  "author": "jfw10973",
   "license": "MIT",
   "scripts": {
     "build": "node ./build/build.js",

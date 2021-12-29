@@ -9,7 +9,6 @@ const logger = require("./util/log");
 const serverUtil = require('./util/serverUtil');
 const wrapApp = require('./app');
 // todo: auto gen openapi document
-// http://yx.mail.netease.com/wiki#/doc/616989
 let app = express();
 // const { pipeline } = require('stream');
 
